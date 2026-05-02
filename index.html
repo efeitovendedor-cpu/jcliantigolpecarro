@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro Galdino — Orientador em Recuperação</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.deck{width:100vw;height:100vh;max-width:960px;max-height:540px;position:relative;overflow:hidden;}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:60px 72px;}
+.slide.active{display:flex;}
+.s0{background:#003087;}
+.s1{background:#1A1A18;}
+.s2{background:#04342C;}
+.s3{background:#042C53;}
+.s4{background:#3D2204;}
+.s5{background:#1A1640;}
+.s6{background:#0D2104;}
+.circle{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.06);}
+.bar{position:absolute;left:28px;top:60px;bottom:60px;width:4px;border-radius:2px;}
+.num{position:absolute;top:28px;right:36px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;opacity:.4;color:#fff;}
+.eye{font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px;}
+.title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,80px);line-height:1;color:#fff;margin-bottom:20px;}
+.body{font-size:clamp(13px,1.7vw,16px);line-height:1.75;}
+.accent-line{height:3px;width:40px;border-radius:2px;margin:12px 0 20px;}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+.bullets li{font-size:clamp(12px,1.6vw,15px);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+.db{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.steps{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+.step{font-size:clamp(11px,1.5vw,14px);padding:9px 14px;border-radius:8px;line-height:1.4;}
+.sig{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;margin-top:14px;}
+.cover-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,10vw,96px);line-height:.92;color:#fff;letter-spacing:1px;}
+.cover-role{font-family:'Barlow',sans-serif;font-size:clamp(13px,2vw,18px);font-weight:600;color:#5B9BD5;letter-spacing:3px;text-transform:uppercase;margin-top:16px;}
+.cover-tagline{font-family:'Barlow',sans-serif;font-size:clamp(11px,1.5vw,14px);color:rgba(255,255,255,.45);line-height:1.6;margin-top:28px;}
+.cover-badge{display:flex;align-items:center;gap:8px;margin-top:12px;}
+.cover-dot{width:7px;height:7px;border-radius:50%;background:#5B9BD5;flex-shrink:0;}
+.cover-badge-text{font-family:'Barlow',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.3);text-transform:uppercase;}
+.cover-tag{display:inline-block;background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-family:'Barlow',sans-serif;font-size:10px;font-weight:600;letter-spacing:3px;padding:5px 12px;border-radius:4px;margin-bottom:18px;}
+.nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:20px;padding:14px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);}
+.btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 20px;border-radius:6px;cursor:pointer;letter-spacing:1px;}
+.btn:hover{background:rgba(255,255,255,.18);}
+.btn:disabled{opacity:.2;cursor:default;}
+.dots{display:flex;gap:7px;align-items:center;}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2);transition:.2s;}
+.dot.on{background:#fff;}
+@media(max-width:600px){.slide{padding:36px 32px 80px;}.deck{max-height:100vh;}}
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 00 CAPA -->
+  <div class="slide s0 active" id="sl0">
+    <div class="circle" style="width:440px;height:440px;right:-110px;bottom:-110px;"></div>
+    <div class="circle" style="width:300px;height:300px;right:-50px;bottom:-50px;"></div>
+    <div class="num">00 / 06</div>
+    <div style="display:flex;flex-direction:column;justify-content:space-between;height:100%;">
+      <div>
+        <span class="cover-tag">RECIFE — PE</span>
+        <div style="width:44px;height:3px;background:#5B9BD5;border-radius:2px;"></div>
+      </div>
+      <div>
+        <div class="cover-name">PEDRO<br>GALDINO</div>
+        <div class="cover-role">Orientador em Recuperação</div>
+      </div>
+      <div>
+        <p class="cover-tagline">Encaminhamento especializado para reabilitação.<br>Quem viveu sabe onde o caminho começa.</p>
+        <div class="cover-badge">
+          <div class="cover-dot"></div>
+          <span class="cover-badge-text">Experiência prática em dependência química</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="slide s1" id="sl1">
+    <div class="bar" style="background:#EF9F27;"></div>
+    <div class="num">01 / 06</div>
+    <p class="eye" style="color:#EF9F27;">Pedro Galdino</p>
+    <div class="accent-line" style="background:#EF9F27;"></div>
+    <h1 class="title">VOCÊ JÁ<br>SOBREVIVEU<br>AO PIOR.</h1>
+    <p class="body" style="color:#AAAAAA;">Agora é hora de construir.<br>Um passo. Uma decisão. Um negócio.</p>
+  </div>
+
+  <!-- 02 -->
+  <div class="slide s2" id="sl2">
+    <div class="bar" style="background:#5DCAA5;"></div>
+    <div class="num">02 / 06</div>
+    <p class="eye" style="color:#5DCAA5;">Sua Credencial</p>
+    <div class="accent-line" style="background:#5DCAA5;"></div>
+    <h1 class="title">SUA HISTÓRIA<br>VALE MAIS QUE<br>QUALQUER DIPLOMA.</h1>
+    <p class="body" style="color:#9FE1CB;">Você não leu sobre dependência num livro.<br>Você viveu. Você saiu. Ficou pra ajudar quem ainda tá dentro.<br>Isso não tem preço — mas tem mercado.</p>
+  </div>
+
+  <!-- 03 -->
+  <div class="slide s3" id="sl3">
+    <div class="bar" style="background:#378ADD;"></div>
+    <div class="num">03 / 06</div>
+    <p class="eye" style="color:#378ADD;">O Que Você Tem</p>
+    <div class="accent-line" style="background:#378ADD;"></div>
+    <h1 class="title" style="font-size:clamp(36px,5.5vw,64px);">NINGUÉM COMPRA<br>ESSE CONHECIMENTO<br>NUMA PRATELEIRA.</h1>
+    <ul class="bullets" style="margin-top:16px;">
+      <li style="color:#B5D4F4;"><span class="db" style="background:#378ADD;"></span>Sabe qual clínica funciona de verdade</li>
+      <li style="color:#B5D4F4;"><span class="db" style="background:#378ADD;"></span>Sabe encaixar pelo perfil e pelo bolso</li>
+      <li style="color:#B5D4F4;"><span class="db" style="background:#378ADD;"></span>Fala a língua do adicto e da família</li>
+      <li style="color:#B5D4F4;"><span class="db" style="background:#378ADD;"></span>Credibilidade que dinheiro não compra</li>
+    </ul>
+  </div>
+
+  <!-- 04 -->
+  <div class="slide s4" id="sl4">
+    <div class="bar" style="background:#EF9F27;"></div>
+    <div class="num">04 / 06</div>
+    <p class="eye" style="color:#EF9F27;">A Virada</p>
+    <div class="accent-line" style="background:#EF9F27;"></div>
+    <h1 class="title">CHEGA DE TRABALHAR<br>PRO DONO<br>DA CLÍNICA.</h1>
+    <p class="body" style="color:#FAC775;">Era na biqueira. Depois pra dono de clínica.<br><span style="color:#fff;font-weight:600;">Agora — VOCÊ É O NEGÓCIO.</span><br>Consultor independente. Seu nome, sua regra.</p>
+  </div>
+
+  <!-- 05 -->
+  <div class="slide s5" id="sl5">
+    <div class="bar" style="background:#7F77DD;"></div>
+    <div class="num">05 / 06</div>
+    <p class="eye" style="color:#7F77DD;">O Caminho</p>
+    <div class="accent-line" style="background:#7F77DD;"></div>
+    <h1 class="title">UM PASSO<br>DE CADA VEZ.</h1>
+    <div class="steps">
+      <div class="step" style="background:rgba(127,119,221,.15);color:#CECBF6;"><strong style="color:#AFA9EC;">1 —</strong> Perfil no Google Maps com seu nome e serviço</div>
+      <div class="step" style="background:rgba(127,119,221,.15);color:#CECBF6;"><strong style="color:#AFA9EC;">2 —</strong> WhatsApp Business: orientação e encaminhamento</div>
+      <div class="step" style="background:rgba(127,119,221,.15);color:#CECBF6;"><strong style="color:#AFA9EC;">3 —</strong> Primeiros encaminhamentos → primeiras avaliações</div>
+      <div class="step" style="background:rgba(127,119,221,.15);color:#CECBF6;"><strong style="color:#AFA9EC;">4 —</strong> Você vira referência. O mercado te encontra.</div>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="slide s6" id="sl6">
+    <div class="bar" style="background:#97C459;"></div>
+    <div class="num">06 / 06</div>
+    <p class="eye" style="color:#97C459;">De Quem Acredita</p>
+    <div class="accent-line" style="background:#97C459;"></div>
+    <h1 class="title">EU ACREDITO EM VOCÊ<br>ATÉ VOCÊ<br>ACREDITAR.</h1>
+    <p style="font-size:clamp(14px,1.9vw,17px);font-style:italic;color:#97C459;margin-bottom:12px;">"Foi assim que vocês me ensinaram."</p>
+    <p class="body" style="color:#C0DD97;">Agora é sua vez, guerreiro. O caminho tá aí.<br>Só falta você querer — e agir.</p>
+    <p class="sig" style="color:#97C459;">— Diogo JCL</p>
+  </div>
+
+</div>
+
+<div class="nav">
+  <button class="btn" id="prev" onclick="go(-1)" disabled>← Anterior</button>
+  <div class="dots" id="dots"></div>
+  <button class="btn" id="next" onclick="go(1)">Próximo →</button>
+</div>
+
+<script>
+var cur=0,total=7;
+var dotsEl=document.getElementById('dots');
+for(var i=0;i<total;i++){var d=document.createElement('div');d.className='dot'+(i===0?' on':'');dotsEl.appendChild(d);}
+function go(dir){
+  document.getElementById('sl'+cur).classList.remove('active');
+  dotsEl.children[cur].classList.remove('on');
+  cur=(cur+dir+total)%total;
+  document.getElementById('sl'+cur).classList.add('active');
+  dotsEl.children[cur].classList.add('on');
+  document.getElementById('prev').disabled=cur===0;
+  document.getElementById('next').disabled=cur===total-1;
+}
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'&&cur<total-1)go(1);if(e.key==='ArrowLeft'&&cur>0)go(-1);});
+var sx=0;
+document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;});
+document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(dx<-50&&cur<total-1)go(1);if(dx>50&&cur>0)go(-1);});
+</script>
+</body>
+</html>

@@ -105,9 +105,9 @@
       position: absolute;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       color: var(--gold-2);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0;
@@ -115,7 +115,7 @@
 
     .kicker::before {
       content: "";
-      width: 34px;
+      width: 42px;
       height: 2px;
       background: var(--gold);
     }
@@ -145,7 +145,7 @@
     .small {
       position: absolute;
       color: var(--gold-2);
-      font-size: 10.5px;
+      font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
     }
@@ -314,9 +314,9 @@
       height: 44px;
       background: #191714;
       color: var(--gold-2);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
-      padding: 14px 28px;
+      padding: 13px 28px;
     }
 
     .input-box {
@@ -404,7 +404,8 @@
     .price h3 {
       margin: 0 0 24px;
       color: var(--gold-2);
-      font-size: 10.5px;
+      font-size: 12px;
+      line-height: 1.2;
       text-transform: uppercase;
     }
 
@@ -441,20 +442,29 @@
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 10px;
+      gap: 14px;
     }
 
     .dot {
-      width: 9px;
-      height: 9px;
+      width: 40px;
+      height: 40px;
       border: 1px solid var(--gold);
       border-radius: 50%;
       background: transparent;
+      color: var(--gold-2);
       cursor: pointer;
       padding: 0;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
     }
 
-    .dot.active { background: var(--gold); }
+    .dot.active {
+      background: var(--gold);
+      color: var(--ink);
+    }
   </style>
 </head>
 <body>
@@ -599,6 +609,8 @@
     slides.forEach((_, i) => {
       const dot = document.createElement("button");
       dot.className = "dot";
+      dot.textContent = String(i + 1).padStart(2, "0");
+      dot.setAttribute("aria-label", `Ir para a página ${i + 1}`);
       dot.addEventListener("click", () => show(i));
       dots.appendChild(dot);
     });

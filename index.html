@@ -1,177 +1,620 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pedro Galdino — Orientador em Recuperação</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;background:#0a0a0a;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.deck{width:100vw;height:100vh;max-width:960px;max-height:540px;position:relative;overflow:hidden;}
-.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:60px 72px;}
-.slide.active{display:flex;}
-.s0{background:#003087;}
-.s1{background:#1A1A18;}
-.s2{background:#04342C;}
-.s3{background:#042C53;}
-.s4{background:#3D2204;}
-.s5{background:#1A1640;}
-.s6{background:#0D2104;}
-.circle{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.06);}
-.bar{position:absolute;left:28px;top:60px;bottom:60px;width:4px;border-radius:2px;}
-.num{position:absolute;top:28px;right:36px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;opacity:.4;color:#fff;}
-.eye{font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:10px;}
-.title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,80px);line-height:1;color:#fff;margin-bottom:20px;}
-.body{font-size:clamp(13px,1.7vw,16px);line-height:1.75;}
-.accent-line{height:3px;width:40px;border-radius:2px;margin:12px 0 20px;}
-.bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px;}
-.bullets li{font-size:clamp(12px,1.6vw,15px);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
-.db{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;}
-.steps{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
-.step{font-size:clamp(11px,1.5vw,14px);padding:9px 14px;border-radius:8px;line-height:1.4;}
-.sig{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;margin-top:14px;}
-.cover-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,10vw,96px);line-height:.92;color:#fff;letter-spacing:1px;}
-.cover-role{font-family:'Barlow',sans-serif;font-size:clamp(13px,2vw,18px);font-weight:600;color:#5B9BD5;letter-spacing:3px;text-transform:uppercase;margin-top:16px;}
-.cover-tagline{font-family:'Barlow',sans-serif;font-size:clamp(11px,1.5vw,14px);color:rgba(255,255,255,.45);line-height:1.6;margin-top:28px;}
-.cover-badge{display:flex;align-items:center;gap:8px;margin-top:12px;}
-.cover-dot{width:7px;height:7px;border-radius:50%;background:#5B9BD5;flex-shrink:0;}
-.cover-badge-text{font-family:'Barlow',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.3);text-transform:uppercase;}
-.cover-tag{display:inline-block;background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-family:'Barlow',sans-serif;font-size:10px;font-weight:600;letter-spacing:3px;padding:5px 12px;border-radius:4px;margin-bottom:18px;}
-.nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:20px;padding:14px;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);}
-.btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;padding:7px 20px;border-radius:6px;cursor:pointer;letter-spacing:1px;}
-.btn:hover{background:rgba(255,255,255,.18);}
-.btn:disabled{opacity:.2;cursor:default;}
-.dots{display:flex;gap:7px;align-items:center;}
-.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2);transition:.2s;}
-.dot.on{background:#fff;}
-@media(max-width:600px){.slide{padding:36px 32px 80px;}.deck{max-height:100vh;}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JCL IA CARROS | Anti-golpe judicial automotivo</title>
+  <style>
+    :root {
+      --ink: #090a0a;
+      --bar: #11100e;
+      --panel: #151412;
+      --panel-2: #1b1916;
+      --line: #3a3426;
+      --gold: #d9b64a;
+      --gold-2: #f5d77a;
+      --cream: #f3efe4;
+      --muted: #b9b2a3;
+      --dim: #776f61;
+      --red: #e65045;
+      --red-dark: #3a1512;
+      --green: #8dd76f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #050505;
+      color: var(--cream);
+      font-family: Aptos, Segoe UI, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .viewer {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 92px 1fr 92px;
+      align-items: center;
+      justify-items: center;
+      gap: 0;
+      padding: 24px 0;
+    }
+
+    .stage {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      transform-origin: center center;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .58);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .slide.active { display: block; }
+
+    .top-band {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 72px;
+      background: var(--bar);
+      border-bottom: 1.5px solid var(--line);
+    }
+
+    .footer-line {
+      position: absolute;
+      left: 84px;
+      right: 84px;
+      bottom: 81px;
+      height: 1px;
+      background: #282318;
+    }
+
+    .brand-foot {
+      position: absolute;
+      left: 84px;
+      bottom: 53px;
+      display: flex;
+      gap: 22px;
+      align-items: baseline;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .brand-foot strong {
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    .page-num {
+      position: absolute;
+      right: 84px;
+      bottom: 53px;
+      color: var(--dim);
+      font-size: 12px;
+    }
+
+    .kicker {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold-2);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    h1, h2, .serif {
+      font-family: Georgia, Cambria, Times New Roman, serif;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    h1, h2, p { margin: 0; }
+
+    .claim {
+      position: absolute;
+      font-size: 42px;
+      line-height: 1.16;
+      color: var(--cream);
+    }
+
+    .body {
+      position: absolute;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .small {
+      position: absolute;
+      color: var(--gold-2);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .rule {
+      position: absolute;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .metric {
+      position: absolute;
+    }
+
+    .metric .value {
+      font-family: Georgia, Cambria, Times New Roman, serif;
+      font-size: 54px;
+      line-height: 1;
+      font-weight: 700;
+      color: var(--gold-2);
+    }
+
+    .metric .value.cream { color: var(--cream); }
+
+    .metric .line {
+      width: 84px;
+      height: 3px;
+      margin: 14px 0 15px;
+      background: currentColor;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.35;
+      max-width: 360px;
+    }
+
+    .box {
+      position: absolute;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .gold-box {
+      background: #17140c;
+      border-color: var(--gold);
+    }
+
+    .box-title {
+      color: var(--cream);
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 14px;
+    }
+
+    .box-text {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .timeline {
+      position: absolute;
+      left: 154px;
+      top: 430px;
+      width: 880px;
+      height: 4px;
+      background: var(--line);
+    }
+
+    .timeline .safe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 4px;
+      width: 704px;
+      background: var(--gold);
+    }
+
+    .node {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      background: #16130d;
+      color: var(--gold-2);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 16px;
+      transform: translate(-24px, -24px);
+    }
+
+    .node.red {
+      border-color: var(--red);
+      background: var(--red-dark);
+      color: var(--red);
+    }
+
+    .node-label {
+      position: absolute;
+      width: 140px;
+      transform: translateX(-70px);
+      text-align: center;
+      top: 474px;
+      color: var(--cream);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .node-sub {
+      position: absolute;
+      width: 140px;
+      transform: translateX(-70px);
+      text-align: center;
+      top: 506px;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.25;
+    }
+
+    .shield-line {
+      position: absolute;
+      left: 168px;
+      top: 354px;
+      width: 902px;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .shield {
+      position: absolute;
+      top: 302px;
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      background: #11100b;
+      display: grid;
+      place-items: center;
+      color: var(--gold-2);
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .shield small {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      font-size: 16px;
+    }
+
+    .demo-screen {
+      position: absolute;
+      left: 100px;
+      top: 252px;
+      width: 1080px;
+      height: 328px;
+      border: 1px solid #3a3020;
+      background: #11100e;
+    }
+
+    .demo-head {
+      height: 44px;
+      background: #191714;
+      color: var(--gold-2);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 14px 28px;
+    }
+
+    .input-box {
+      position: absolute;
+      width: 260px;
+      height: 78px;
+      background: #191815;
+      border: 1px solid #302918;
+      padding: 15px 22px;
+    }
+
+    .input-box span {
+      display: block;
+      color: var(--dim);
+      font-size: 12px;
+      margin-bottom: 11px;
+    }
+
+    .input-box strong {
+      color: var(--cream);
+      font-size: 15px;
+    }
+
+    .risk-circle {
+      position: absolute;
+      left: 482px;
+      top: 360px;
+      width: 176px;
+      height: 176px;
+      border-radius: 50%;
+      border: 2px solid var(--red);
+      background: var(--red-dark);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--red);
+      font-weight: 700;
+      font-size: 32px;
+    }
+
+    .risk-circle span {
+      display: block;
+      color: var(--cream);
+      font-size: 13px;
+      font-weight: 400;
+      margin-top: 6px;
+    }
+
+    .reasons {
+      position: absolute;
+      left: 726px;
+      top: 358px;
+      width: 324px;
+    }
+
+    .reason-row {
+      display: grid;
+      grid-template-columns: 166px 1fr;
+      gap: 6px;
+      align-items: start;
+      min-height: 54px;
+      border-bottom: 1px solid #2c271f;
+      padding-top: 0;
+    }
+
+    .reason-row strong {
+      font-size: 17px;
+      color: var(--cream);
+    }
+
+    .reason-row span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .price {
+      position: absolute;
+      background: var(--panel);
+      border: 1px solid var(--gold);
+      padding: 24px;
+    }
+
+    .price.dim { border-color: var(--dim); }
+
+    .price h3 {
+      margin: 0 0 24px;
+      color: var(--gold-2);
+      font-size: 10.5px;
+      text-transform: uppercase;
+    }
+
+    .price .amount {
+      font-family: Georgia, Cambria, Times New Roman, serif;
+      color: var(--cream);
+      font-size: 27px;
+      margin-bottom: 32px;
+    }
+
+    .price p {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.35;
+    }
+
+    .nav {
+      border: 1px solid #272016;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #0d0c0b;
+      color: var(--gold-2);
+      font-size: 34px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .nav:hover { border-color: var(--gold); }
+
+    .dots {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .dot.active { background: var(--gold); }
+  </style>
 </head>
 <body>
-<div class="deck">
+  <main class="viewer">
+    <button class="nav" id="prev" aria-label="Slide anterior">‹</button>
+    <div class="stage" id="stage">
+      <section class="slide active">
+        <div class="top-band"></div><div class="footer-line"></div><div class="brand-foot"><strong>JCL IA CARROS</strong><span>Anti-golpe judicial automotivo</span></div><div class="page-num">01</div>
+        <img src="assets/jcl-ia-logo.png" alt="JCL IA CARROS" style="position:absolute;left:66px;top:72px;width:515px;height:290px;object-fit:contain;">
+        <div class="kicker" style="left:690px;top:86px;">Proposta para surpreender o cliente</div>
+        <h1 class="claim" style="left:690px;top:132px;width:455px;">Anti-golpe judicial para lojas de veículos</h1>
+        <p class="body" style="left:692px;top:322px;width:424px;">Uma camada de inteligência e pagamento seguro para proteger capital de giro quando o DETRAN parece limpo, mas a Justiça ainda pode bloquear o carro.</p>
+        <div class="rule" style="left:690px;top:428px;width:126px;"></div>
+        <div class="metric" style="left:690px;top:462px;width:415px;"><div class="value">R$ 400 mil</div><div class="line"></div><div class="label">caso real relatado em veículos bloqueados após consultas, laudo e transferência.</div></div>
+        <div class="small" style="left:84px;top:470px;">O que o cliente compra</div>
+        <div class="serif" style="position:absolute;left:84px;top:500px;font-size:26px;">Paz de espírito</div>
+        <p class="body" style="left:84px;top:540px;width:365px;font-size:17px;">Menos dinheiro parado, menos venda cancelada e menos risco invisível no estoque.</p>
+      </section>
 
-  <!-- 00 CAPA -->
-  <div class="slide s0 active" id="sl0">
-    <div class="circle" style="width:440px;height:440px;right:-110px;bottom:-110px;"></div>
-    <div class="circle" style="width:300px;height:300px;right:-50px;bottom:-50px;"></div>
-    <div class="num">00 / 06</div>
-    <div style="display:flex;flex-direction:column;justify-content:space-between;height:100%;">
-      <div>
-        <span class="cover-tag">RECIFE — PE</span>
-        <div style="width:44px;height:3px;background:#5B9BD5;border-radius:2px;"></div>
-      </div>
-      <div>
-        <div class="cover-name">PEDRO<br>GALDINO</div>
-        <div class="cover-role">Orientador em Recuperação</div>
-      </div>
-      <div>
-        <p class="cover-tagline">Encaminhamento especializado para reabilitação.<br>Quem viveu sabe onde o caminho começa.</p>
-        <div class="cover-badge">
-          <div class="cover-dot"></div>
-          <span class="cover-badge-text">Experiência prática em dependência química</span>
+      <section class="slide">
+        <div class="top-band"></div><div class="footer-line"></div><div class="brand-foot"><strong>JCL IA CARROS</strong><span>Anti-golpe judicial automotivo</span></div><div class="page-num">02</div>
+        <div class="kicker" style="left:84px;top:88px;">A dor do mercado</div>
+        <h1 class="claim" style="left:84px;top:124px;width:660px;font-size:40px;">O carro pode estar limpo e ainda assim virar prejuízo.</h1>
+        <div class="metric" style="left:84px;top:250px;width:322px;"><div class="value cream">2 veículos</div><div class="line"></div><div class="label">bloqueados mesmo após o lojista seguir o processo comum.</div></div>
+        <div class="metric" style="left:432px;top:250px;width:360px;"><div class="value">R$ 400 mil</div><div class="line"></div><div class="label">travados fora do capital de giro.</div></div>
+        <p class="body" style="left:836px;top:132px;width:306px;font-size:17px;">O problema não é falta de cautela. O problema é que a consulta tradicional enxerga o carro, mas não antecipa o risco jurídico em volta dos antigos donos.</p>
+        <div class="rule" style="left:836px;top:264px;width:196px;height:2px;"></div>
+        <div class="serif" style="position:absolute;left:836px;top:292px;width:310px;font-size:26px;line-height:1.2;">"Fizemos tudo certo. Mesmo assim, bloqueou."</div>
+        <div class="timeline"><div class="safe"></div></div>
+        <div class="node" style="left:154px;top:430px;">1</div><div class="node-label" style="left:154px;">Consulta</div><div class="node-sub" style="left:154px;">DETRAN, multas e gravame</div>
+        <div class="node" style="left:330px;top:430px;">2</div><div class="node-label" style="left:330px;">Laudo</div><div class="node-sub" style="left:330px;">cautelar aparece limpo</div>
+        <div class="node" style="left:506px;top:430px;">3</div><div class="node-label" style="left:506px;">Transferência</div><div class="node-sub" style="left:506px;">documento segue o fluxo</div>
+        <div class="node" style="left:682px;top:430px;">4</div><div class="node-label" style="left:682px;">Pagamento</div><div class="node-sub" style="left:682px;">capital sai da loja</div>
+        <div class="node red" style="left:858px;top:430px;">!</div><div class="node-label" style="left:858px;">Bloqueio</div><div class="node-sub" style="left:858px;">decisão judicial posterior</div>
+        <div style="position:absolute;left:820px;top:370px;width:142px;text-align:center;color:var(--red);font-weight:700;font-size:17px;">ponto cego</div>
+      </section>
+
+      <section class="slide">
+        <div class="top-band"></div><div class="footer-line"></div><div class="brand-foot"><strong>JCL IA CARROS</strong><span>Anti-golpe judicial automotivo</span></div><div class="page-num">03</div>
+        <div class="kicker" style="left:84px;top:88px;">O ponto cego</div>
+        <h1 class="claim" style="left:84px;top:124px;width:850px;">A consulta comum olha a placa. O risco real mora no CPF.</h1>
+        <div class="box" style="left:84px;top:264px;width:398px;height:280px;padding:28px 32px;">
+          <div class="small" style="position:static;margin-bottom:18px;color:var(--muted);">Consulta tradicional</div>
+          <div class="serif" style="font-size:34px;margin-bottom:36px;">Veículo</div>
+          <p class="box-text" style="font-size:18px;">Placa<br>Renavam<br>Multas<br>Gravame<br>Laudo cautelar</p>
+          <div style="position:absolute;right:46px;top:104px;width:112px;text-align:center;color:var(--green);font-weight:700;font-size:22px;line-height:1.05;">parece<br>limpo</div>
         </div>
-      </div>
+        <div style="position:absolute;left:548px;top:338px;width:152px;text-align:center;color:var(--red);font-size:31px;font-weight:700;line-height:1.1;">PONTO<br>CEGO</div>
+        <div class="rule" style="left:528px;top:446px;width:192px;background:var(--red);height:2px;"></div>
+        <p class="body" style="left:512px;top:470px;width:232px;font-size:15px;text-align:center;">processos e disputas que não aparecem na vistoria comum</p>
+        <div class="box gold-box" style="left:798px;top:240px;width:398px;height:344px;padding:28px 32px;">
+          <div class="small" style="position:static;margin-bottom:18px;">JCL IA CARROS adiciona</div>
+          <div class="serif" style="font-size:34px;color:var(--gold-2);margin-bottom:34px;">Pessoas</div>
+          <p class="box-text" style="color:var(--cream);font-size:17px;">CPF/CNPJ do vendedor<br>Histórico de proprietários<br>Processos públicos<br>Sinais de execução<br>Litígios de família<br>Alertas de diário oficial</p>
+          <p class="box-text" style="font-size:13.5px;margin-top:20px;">Não revela segredo de justiça. Calcula risco com sinais públicos e fluxo seguro de pagamento.</p>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="top-band"></div><div class="footer-line"></div><div class="brand-foot"><strong>JCL IA CARROS</strong><span>Anti-golpe judicial automotivo</span></div><div class="page-num">04</div>
+        <div class="kicker" style="left:84px;top:88px;">A solução</div>
+        <h1 class="claim" style="left:84px;top:124px;width:890px;font-size:41px;">Três escudos reduzem o risco antes, durante e depois da compra.</h1>
+        <div class="shield-line"></div>
+        <div class="shield" style="left:276px;"><small>1</small>Q</div>
+        <div class="shield" style="left:596px;"><small>2</small>$</div>
+        <div class="shield" style="left:916px;"><small>3</small>24</div>
+        <div class="box" style="left:188px;top:432px;width:280px;height:168px;padding:24px 22px;"><div class="small" style="position:static;margin-bottom:18px;">Antes de comprar</div><div class="box-title">Detetive particular</div><p class="box-text">A IA cruza CPF, histórico do carro e processos públicos para acender risco alto antes do dinheiro sair.</p></div>
+        <div class="box" style="left:508px;top:432px;width:280px;height:168px;padding:24px 22px;"><div class="small" style="position:static;margin-bottom:18px;">Durante a transação</div><div class="box-title">Cofre blindado</div><p class="box-text">O valor fica em conta segura e só libera quando o documento sai limpo no nome da loja.</p></div>
+        <div class="box" style="left:828px;top:432px;width:280px;height:168px;padding:24px 22px;"><div class="small" style="position:static;margin-bottom:18px;">Depois da compra</div><div class="box-title">Radar 24 horas</div><p class="box-text">O estoque segue monitorado. Se um ex-dono vira risco, a loja recebe alerta para agir rápido.</p></div>
+        <div class="serif" style="position:absolute;left:226px;top:610px;width:828px;text-align:center;font-size:19px;">O cliente compra a chance de não transformar estoque em prejuízo judicial.</div>
+      </section>
+
+      <section class="slide">
+        <div class="top-band"></div><div class="footer-line"></div><div class="brand-foot"><strong>JCL IA CARROS</strong><span>Anti-golpe judicial automotivo</span></div><div class="page-num">05</div>
+        <div class="kicker" style="left:84px;top:88px;">A demo que vende</div>
+        <h1 class="claim" style="left:84px;top:124px;width:1010px;font-size:39px;">Em 60 segundos, o lojista recebe uma decisão simples: compra, segura ou foge.</h1>
+        <div class="demo-screen">
+          <div class="demo-head">JCL IA CARROS | Análise preventiva de compra</div>
+        </div>
+        <div class="small" style="left:132px;top:326px;color:var(--muted);">Entrada</div>
+        <div class="input-box" style="left:132px;top:356px;"><span>CPF do vendedor</span><strong>***.421.***-09</strong></div>
+        <div class="input-box" style="left:132px;top:448px;"><span>Veículo</span><strong>SUV 2021 | chassi validado</strong></div>
+        <div class="small" style="left:482px;top:326px;">Resultado</div>
+        <div class="risk-circle">ALTO<span>risco de bloqueio</span></div>
+        <div class="small" style="left:726px;top:326px;color:var(--muted);">Por que alertou</div>
+        <div class="reasons">
+          <div class="reason-row"><strong>Execução ativa</strong><span>sinal público recente</span></div>
+          <div class="reason-row"><strong>Litígio familiar</strong><span>risco de partilha do bem</span></div>
+          <div class="reason-row"><strong>3 eventos em 90 dias</strong><span>padrão fora do normal</span></div>
+        </div>
+        <div class="gold-box" style="position:absolute;left:724px;top:520px;width:362px;height:38px;padding:9px 20px;text-align:center;color:var(--gold-2);font-size:15px;font-weight:700;">Recomendação: não liberar pagamento direto.</div>
+        <p class="body" style="left:104px;top:600px;width:840px;font-size:16px;">A tela precisa terminar em ação, não em relatório: comprar, segurar no cofre ou recusar.</p>
+      </section>
+
+      <section class="slide">
+        <div class="top-band"></div><div class="footer-line"></div><div class="brand-foot"><strong>JCL IA CARROS</strong><span>Anti-golpe judicial automotivo</span></div><div class="page-num">06</div>
+        <div class="kicker" style="left:84px;top:88px;">Modelo comercial</div>
+        <h1 class="claim" style="left:84px;top:124px;width:760px;font-size:37px;">O produto vira assinatura porque protege capital de giro todos os dias.</h1>
+        <p class="body" style="left:84px;top:244px;width:706px;font-size:16px;">Proposta inicial para piloto comercial. Os valores devem ser ajustados com CAC, suporte jurídico, parceiros financeiros e volume real de consultas.</p>
+        <div class="gold-box serif" style="position:absolute;left:894px;top:112px;width:230px;height:104px;padding:20px 26px;text-align:center;color:var(--gold-2);font-size:23px;line-height:1.15;">Uma perda evitada paga anos de assinatura.</div>
+        <div class="price dim" style="left:110px;top:350px;width:278px;height:178px;"><h3 style="color:var(--muted);">Diagnóstico</h3><div class="amount">R$ 497/mês</div><p>consultas avulsas para validar a dor em lojas menores</p></div>
+        <div class="price" style="left:448px;top:330px;width:278px;height:198px;"><h3>Operação</h3><div class="amount">R$ 1.497/mês</div><p>score de risco + monitoramento do estoque ativo</p></div>
+        <div class="price" style="left:786px;top:270px;width:278px;height:258px;"><h3>Blindagem</h3><div class="amount">R$ 2.997/mês</div><p>monitoramento + cofre via parceiro financeiro</p></div>
+        <p class="body" style="left:138px;top:574px;width:930px;font-size:18px;color:var(--cream);">A lógica de venda: se a loja movimenta milhões em estoque, pagar pela blindagem do processo deixa de ser custo e vira seguro operacional.</p>
+      </section>
+
+      <section class="slide">
+        <div class="top-band"></div><div class="footer-line"></div><div class="brand-foot"><strong>JCL IA CARROS</strong><span>Anti-golpe judicial automotivo</span></div><div class="page-num">07</div>
+        <div class="kicker" style="left:84px;top:88px;">Fechamento</div>
+        <h1 class="claim" style="left:84px;top:124px;width:900px;">O jeito de vender: mostrar a blindagem, não a tecnologia.</h1>
+        <div class="box" style="left:84px;top:264px;width:388px;height:264px;padding:28px 32px;"><div class="small" style="position:static;margin-bottom:24px;">Piloto de 30 dias</div><p class="box-text"><strong style="color:var(--gold-2);">Semana 1</strong> &nbsp;&nbsp;&nbsp; 10 lojas piloto</p><p class="box-text"><strong style="color:var(--gold-2);">Semana 2</strong> &nbsp;&nbsp;&nbsp; 100 veículos monitorados</p><p class="box-text"><strong style="color:var(--gold-2);">Semana 3</strong> &nbsp;&nbsp;&nbsp; alertas e ajustes do score</p><p class="box-text"><strong style="color:var(--gold-2);">Semana 4</strong> &nbsp;&nbsp;&nbsp; relatório de risco evitado</p></div>
+        <div class="box gold-box" style="left:536px;top:264px;width:302px;height:264px;padding:28px 32px;text-align:center;"><div class="small" style="position:static;margin-bottom:36px;text-align:left;">Frase de impacto</div><div class="serif" style="font-size:25px;line-height:1.15;">"O DETRAN mostra se o carro está limpo. A JCL IA CARROS mostra se o dinheiro da loja está seguro."</div></div>
+        <div class="box" style="left:902px;top:264px;width:294px;height:264px;padding:28px 32px;"><div class="small" style="position:static;margin-bottom:32px;color:var(--muted);">Próxima reunião</div><div class="serif" style="font-size:25px;line-height:1.25;">Levar 3 CPFs reais e simular a decisão de compra ao vivo.</div><p class="box-text" style="margin-top:24px;">O cliente sai da reunião entendendo a economia, não a tecnologia.</p></div>
+        <img src="assets/jcl-ia-logo.png" alt="JCL IA CARROS" style="position:absolute;left:84px;top:548px;width:260px;height:72px;object-fit:contain;">
+        <div class="serif" style="position:absolute;left:364px;top:570px;font-size:26px;color:var(--gold-2);">Anti-golpe judicial automotivo</div>
+        <p class="body" style="left:364px;top:606px;width:430px;font-size:15px;">Blindar a compra antes que o prejuízo entre no pátio.</p>
+      </section>
     </div>
-  </div>
+    <button class="nav" id="next" aria-label="Próximo slide">›</button>
+  </main>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const stage = document.getElementById("stage");
+    const dots = document.getElementById("dots");
+    let index = 0;
 
-  <!-- 01 -->
-  <div class="slide s1" id="sl1">
-    <div class="bar" style="background:#EF9F27;"></div>
-    <div class="num">01 / 06</div>
-    <p class="eye" style="color:#EF9F27;">Pedro Galdino</p>
-    <div class="accent-line" style="background:#EF9F27;"></div>
-    <h1 class="title">VOCÊ JÁ<br>SOBREVIVEU<br>AO PIOR.</h1>
-    <p class="body" style="color:#AAAAAA;">Agora é hora de construir.<br>Um passo. Uma decisão. Um negócio.</p>
-  </div>
+    function scaleStage() {
+      const maxW = window.innerWidth - 184;
+      const maxH = window.innerHeight - 72;
+      const scale = Math.max(0.22, Math.min(maxW / 1280, maxH / 720));
+      stage.style.transform = `scale(${scale})`;
+      stage.style.margin = `${(720 * scale - 720) / 2}px ${(1280 * scale - 1280) / 2}px`;
+    }
 
-  <!-- 02 -->
-  <div class="slide s2" id="sl2">
-    <div class="bar" style="background:#5DCAA5;"></div>
-    <div class="num">02 / 06</div>
-    <p class="eye" style="color:#5DCAA5;">Sua Credencial</p>
-    <div class="accent-line" style="background:#5DCAA5;"></div>
-    <h1 class="title">SUA HISTÓRIA<br>VALE MAIS QUE<br>QUALQUER DIPLOMA.</h1>
-    <p class="body" style="color:#9FE1CB;">Você não leu sobre dependência num livro.<br>Você viveu. Você saiu. Ficou pra ajudar quem ainda tá dentro.<br>Isso não tem preço — mas tem mercado.</p>
-  </div>
+    function show(nextIndex) {
+      index = (nextIndex + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+      Array.from(dots.children).forEach((dot, i) => dot.classList.toggle("active", i === index));
+    }
 
-  <!-- 03 -->
-  <div class="slide s3" id="sl3">
-    <div class="bar" style="background:#378ADD;"></div>
-    <div class="num">03 / 06</div>
-    <p class="eye" style="color:#378ADD;">O Que Você Tem</p>
-    <div class="accent-line" style="background:#378ADD;"></div>
-    <h1 class="title" style="font-size:clamp(36px,5.5vw,64px);">NINGUÉM COMPRA<br>ESSE CONHECIMENTO<br>NUMA PRATELEIRA.</h1>
-    <ul class="bullets" style="margin-top:16px;">
-      <li style="color:#B5D4F4;"><span class="db" style="background:#378ADD;"></span>Sabe qual clínica funciona de verdade</li>
-      <li style="color:#B5D4F4;"><span class="db" style="background:#378ADD;"></span>Sabe encaixar pelo perfil e pelo bolso</li>
-      <li style="color:#B5D4F4;"><span class="db" style="background:#378ADD;"></span>Fala a língua do adicto e da família</li>
-      <li style="color:#B5D4F4;"><span class="db" style="background:#378ADD;"></span>Credibilidade que dinheiro não compra</li>
-    </ul>
-  </div>
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "dot";
+      dot.addEventListener("click", () => show(i));
+      dots.appendChild(dot);
+    });
 
-  <!-- 04 -->
-  <div class="slide s4" id="sl4">
-    <div class="bar" style="background:#EF9F27;"></div>
-    <div class="num">04 / 06</div>
-    <p class="eye" style="color:#EF9F27;">A Virada</p>
-    <div class="accent-line" style="background:#EF9F27;"></div>
-    <h1 class="title">CHEGA DE TRABALHAR<br>PRO DONO<br>DA CLÍNICA.</h1>
-    <p class="body" style="color:#FAC775;">Era na biqueira. Depois pra dono de clínica.<br><span style="color:#fff;font-weight:600;">Agora — VOCÊ É O NEGÓCIO.</span><br>Consultor independente. Seu nome, sua regra.</p>
-  </div>
-
-  <!-- 05 -->
-  <div class="slide s5" id="sl5">
-    <div class="bar" style="background:#7F77DD;"></div>
-    <div class="num">05 / 06</div>
-    <p class="eye" style="color:#7F77DD;">O Caminho</p>
-    <div class="accent-line" style="background:#7F77DD;"></div>
-    <h1 class="title">UM PASSO<br>DE CADA VEZ.</h1>
-    <div class="steps">
-      <div class="step" style="background:rgba(127,119,221,.15);color:#CECBF6;"><strong style="color:#AFA9EC;">1 —</strong> Perfil no Google Maps com seu nome e serviço</div>
-      <div class="step" style="background:rgba(127,119,221,.15);color:#CECBF6;"><strong style="color:#AFA9EC;">2 —</strong> WhatsApp Business: orientação e encaminhamento</div>
-      <div class="step" style="background:rgba(127,119,221,.15);color:#CECBF6;"><strong style="color:#AFA9EC;">3 —</strong> Primeiros encaminhamentos → primeiras avaliações</div>
-      <div class="step" style="background:rgba(127,119,221,.15);color:#CECBF6;"><strong style="color:#AFA9EC;">4 —</strong> Você vira referência. O mercado te encontra.</div>
-    </div>
-  </div>
-
-  <!-- 06 -->
-  <div class="slide s6" id="sl6">
-    <div class="bar" style="background:#97C459;"></div>
-    <div class="num">06 / 06</div>
-    <p class="eye" style="color:#97C459;">De Quem Acredita</p>
-    <div class="accent-line" style="background:#97C459;"></div>
-    <h1 class="title">EU ACREDITO EM VOCÊ<br>ATÉ VOCÊ<br>ACREDITAR.</h1>
-    <p style="font-size:clamp(14px,1.9vw,17px);font-style:italic;color:#97C459;margin-bottom:12px;">"Foi assim que vocês me ensinaram."</p>
-    <p class="body" style="color:#C0DD97;">Agora é sua vez, guerreiro. O caminho tá aí.<br>Só falta você querer — e agir.</p>
-    <p class="sig" style="color:#97C459;">— Diogo JCL</p>
-  </div>
-
-</div>
-
-<div class="nav">
-  <button class="btn" id="prev" onclick="go(-1)" disabled>← Anterior</button>
-  <div class="dots" id="dots"></div>
-  <button class="btn" id="next" onclick="go(1)">Próximo →</button>
-</div>
-
-<script>
-var cur=0,total=7;
-var dotsEl=document.getElementById('dots');
-for(var i=0;i<total;i++){var d=document.createElement('div');d.className='dot'+(i===0?' on':'');dotsEl.appendChild(d);}
-function go(dir){
-  document.getElementById('sl'+cur).classList.remove('active');
-  dotsEl.children[cur].classList.remove('on');
-  cur=(cur+dir+total)%total;
-  document.getElementById('sl'+cur).classList.add('active');
-  dotsEl.children[cur].classList.add('on');
-  document.getElementById('prev').disabled=cur===0;
-  document.getElementById('next').disabled=cur===total-1;
-}
-document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'&&cur<total-1)go(1);if(e.key==='ArrowLeft'&&cur>0)go(-1);});
-var sx=0;
-document.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;});
-document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(dx<-50&&cur<total-1)go(1);if(dx>50&&cur>0)go(-1);});
-</script>
+    document.getElementById("prev").addEventListener("click", () => show(index - 1));
+    document.getElementById("next").addEventListener("click", () => show(index + 1));
+    window.addEventListener("keydown", event => {
+      if (event.key === "ArrowRight") show(index + 1);
+      if (event.key === "ArrowLeft") show(index - 1);
+    });
+    window.addEventListener("resize", scaleStage);
+    scaleStage();
+    show(0);
+  </script>
 </body>
 </html>
+
+
+

@@ -67,10 +67,10 @@
       top: 72px;
       width: 548px;
       height: 306px;
-      border: 1px solid rgba(217, 182, 74, .42);
+      border: 0;
       border-radius: 6px;
-      background: linear-gradient(135deg, #20201c 0%, #10100f 72%);
-      box-shadow: 0 28px 58px rgba(0, 0, 0, .52), inset 0 1px 0 rgba(255, 248, 234, .08);
+      background: #050505;
+      box-shadow: none;
     }
 
     .slide:last-of-type::before {
@@ -507,6 +507,17 @@
       filter: drop-shadow(0 18px 32px rgba(0, 0, 0, .46));
     }
 
+    .slide:first-child img[alt="JCL IA CARROS"] {
+      left: 54px !important;
+      top: 72px !important;
+      width: 548px !important;
+      height: 306px !important;
+      object-fit: cover !important;
+      border: 1px solid rgba(217, 182, 74, .46);
+      border-radius: 6px;
+      background: #050505;
+    }
+
     .mobile-reader { display: none; }
 
     @media (max-width: 860px) {
@@ -530,7 +541,7 @@
         padding: 10px;
         border: 1px solid rgba(217, 182, 74, .44);
         border-radius: 6px;
-        background: linear-gradient(135deg, #20201c 0%, #10100f 72%);
+        background: #050505;
         box-shadow: 0 20px 42px rgba(0, 0, 0, .46);
       }
 

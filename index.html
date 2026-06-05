@@ -6,16 +6,16 @@
   <title>JCL IA CARROS | Anti-golpe judicial automotivo</title>
   <style>
     :root {
-      --ink: #090a0a;
-      --bar: #11100e;
-      --panel: #151412;
-      --panel-2: #1b1916;
-      --line: #3a3426;
+      --ink: #080807;
+      --bar: #14120f;
+      --panel: #1a1814;
+      --panel-2: #211f1a;
+      --line: #4a3d24;
       --gold: #d9b64a;
       --gold-2: #f5d77a;
-      --cream: #f3efe4;
-      --muted: #b9b2a3;
-      --dim: #776f61;
+      --cream: #fff8ea;
+      --muted: #d4cab8;
+      --dim: #a5967c;
       --red: #e65045;
       --red-dark: #3a1512;
       --green: #8dd76f;
@@ -26,7 +26,7 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: #050505;
+      background: #070706;
       color: var(--cream);
       font-family: Aptos, Segoe UI, Arial, sans-serif;
       overflow: hidden;
@@ -47,7 +47,7 @@
       width: 1280px;
       height: 720px;
       transform-origin: center center;
-      box-shadow: 0 28px 80px rgba(0, 0, 0, .58);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .58), 0 0 0 1px rgba(217, 182, 74, .18);
     }
 
     .slide {
@@ -55,16 +55,42 @@
       inset: 0;
       display: none;
       overflow: hidden;
-      background: var(--ink);
+      background: linear-gradient(135deg, #11100e 0%, var(--ink) 46%, #0c0c0b 100%);
     }
 
     .slide.active { display: block; }
+
+    .slide:first-child::before {
+      content: "";
+      position: absolute;
+      left: 54px;
+      top: 72px;
+      width: 548px;
+      height: 306px;
+      border: 1px solid rgba(217, 182, 74, .42);
+      border-radius: 6px;
+      background: linear-gradient(135deg, #20201c 0%, #10100f 72%);
+      box-shadow: 0 28px 58px rgba(0, 0, 0, .52), inset 0 1px 0 rgba(255, 248, 234, .08);
+    }
+
+    .slide:last-of-type::before {
+      content: "";
+      position: absolute;
+      left: 74px;
+      top: 538px;
+      width: 288px;
+      height: 88px;
+      border: 1px solid rgba(217, 182, 74, .36);
+      border-radius: 6px;
+      background: linear-gradient(135deg, #20201c 0%, #10100f 72%);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, .44), inset 0 1px 0 rgba(255, 248, 234, .08);
+    }
 
     .top-band {
       position: absolute;
       inset: 0 0 auto;
       height: 72px;
-      background: var(--bar);
+      background: linear-gradient(90deg, var(--bar), #0f0f0e);
       border-bottom: 1.5px solid var(--line);
     }
 
@@ -84,13 +110,13 @@
       display: flex;
       gap: 22px;
       align-items: baseline;
-      font-size: 12px;
+      font-size: 13px;
       color: var(--dim);
     }
 
     .brand-foot strong {
       color: var(--gold);
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .page-num {
@@ -107,10 +133,12 @@
       align-items: center;
       gap: 14px;
       color: var(--gold-2);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0;
+      line-height: 1.15;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .55);
     }
 
     .kicker::before {
@@ -130,24 +158,26 @@
 
     .claim {
       position: absolute;
-      font-size: 42px;
-      line-height: 1.16;
+      font-size: 44px;
+      line-height: 1.12;
       color: var(--cream);
+      text-shadow: 0 2px 18px rgba(0, 0, 0, .42);
     }
 
     .body {
       position: absolute;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.35;
+      font-size: 19px;
+      line-height: 1.42;
     }
 
     .small {
       position: absolute;
       color: var(--gold-2);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
+      line-height: 1.18;
     }
 
     .rule {
@@ -179,8 +209,8 @@
 
     .metric .label {
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.35;
+      font-size: 19px;
+      line-height: 1.42;
       max-width: 360px;
     }
 
@@ -188,6 +218,7 @@
       position: absolute;
       background: var(--panel);
       border: 1px solid var(--line);
+      box-shadow: inset 0 1px 0 rgba(255, 248, 234, .04);
     }
 
     .gold-box {
@@ -204,8 +235,8 @@
 
     .box-text {
       color: var(--muted);
-      font-size: 15px;
-      line-height: 1.35;
+      font-size: 16px;
+      line-height: 1.42;
     }
 
     .timeline {
@@ -265,8 +296,8 @@
       text-align: center;
       top: 506px;
       color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.25;
+      font-size: 13.5px;
+      line-height: 1.3;
     }
 
     .shield-line {
@@ -291,6 +322,7 @@
       color: var(--gold-2);
       font-size: 30px;
       font-weight: 700;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, .36);
     }
 
     .shield small {
@@ -331,7 +363,7 @@
     .input-box span {
       display: block;
       color: var(--dim);
-      font-size: 12px;
+      font-size: 13px;
       margin-bottom: 11px;
     }
 
@@ -388,7 +420,7 @@
     }
 
     .reason-row span {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--muted);
     }
 
@@ -418,8 +450,8 @@
 
     .price p {
       color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.35;
+      font-size: 15.5px;
+      line-height: 1.42;
     }
 
     .nav {
@@ -443,6 +475,11 @@
       transform: translateX(-50%);
       display: flex;
       gap: 14px;
+      padding: 8px 12px;
+      border: 1px solid rgba(217, 182, 74, .22);
+      border-radius: 8px;
+      background: rgba(8, 8, 7, .86);
+      box-shadow: 0 14px 38px rgba(0, 0, 0, .36);
     }
 
     .dot {
@@ -464,6 +501,144 @@
     .dot.active {
       background: var(--gold);
       color: var(--ink);
+    }
+
+    img[alt="JCL IA CARROS"] {
+      filter: drop-shadow(0 18px 32px rgba(0, 0, 0, .46));
+    }
+
+    .mobile-reader { display: none; }
+
+    @media (max-width: 860px) {
+      body {
+        overflow: auto;
+        background: #080807;
+      }
+
+      .viewer,
+      .dots { display: none; }
+
+      .mobile-reader {
+        display: block;
+        min-height: 100vh;
+        padding: 18px 18px 36px;
+        background: linear-gradient(135deg, #11100e 0%, #080807 52%, #0d0c0b 100%);
+      }
+
+      .mobile-logo {
+        margin: 0 0 24px;
+        padding: 10px;
+        border: 1px solid rgba(217, 182, 74, .44);
+        border-radius: 6px;
+        background: linear-gradient(135deg, #20201c 0%, #10100f 72%);
+        box-shadow: 0 20px 42px rgba(0, 0, 0, .46);
+      }
+
+      .mobile-logo img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .mobile-kicker {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        color: var(--gold-2);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin: 0 0 14px;
+      }
+
+      .mobile-kicker::before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: var(--gold);
+        flex: 0 0 auto;
+      }
+
+      .mobile-reader h1,
+      .mobile-reader h2,
+      .mobile-reader h3 {
+        margin: 0;
+        font-family: Georgia, Cambria, Times New Roman, serif;
+        font-weight: 400;
+        letter-spacing: 0;
+        color: var(--cream);
+      }
+
+      .mobile-reader h1 {
+        font-size: 34px;
+        line-height: 1.08;
+        margin-bottom: 18px;
+      }
+
+      .mobile-reader h2 {
+        font-size: 27px;
+        line-height: 1.12;
+        margin-bottom: 12px;
+      }
+
+      .mobile-reader p,
+      .mobile-reader li {
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.45;
+      }
+
+      .mobile-reader p { margin: 0; }
+
+      .mobile-section {
+        padding: 24px 0;
+        border-top: 1px solid rgba(217, 182, 74, .2);
+      }
+
+      .mobile-section:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .mobile-stat {
+        margin-top: 18px;
+        color: var(--gold-2);
+        font-family: Georgia, Cambria, Times New Roman, serif;
+        font-size: 34px;
+        line-height: 1;
+      }
+
+      .mobile-grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .mobile-tile {
+        border: 1px solid rgba(217, 182, 74, .28);
+        border-radius: 6px;
+        background: rgba(26, 24, 20, .88);
+        padding: 16px;
+      }
+
+      .mobile-tile strong {
+        display: block;
+        color: var(--gold-2);
+        font-size: 13px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .mobile-quote {
+        margin-top: 16px;
+        border-left: 3px solid var(--gold);
+        padding-left: 14px;
+        color: var(--cream);
+        font-family: Georgia, Cambria, Times New Roman, serif;
+        font-size: 23px;
+        line-height: 1.22;
+      }
     }
   </style>
 </head>
@@ -585,6 +760,64 @@
     </div>
     <button class="nav" id="next" aria-label="Próximo slide">›</button>
   </main>
+  <main class="mobile-reader" aria-label="JCL IA CARROS">
+    <section class="mobile-section">
+      <div class="mobile-logo"><img src="assets/jcl-ia-logo.png" alt="JCL IA CARROS"></div>
+      <div class="mobile-kicker">Proposta para surpreender o cliente</div>
+      <h1>Anti-golpe judicial para lojas de veículos</h1>
+      <p>Uma camada de inteligência e pagamento seguro para proteger capital de giro quando o DETRAN parece limpo, mas a Justiça ainda pode bloquear o carro.</p>
+      <div class="mobile-stat">R$ 400 mil</div>
+      <p>caso real relatado em veículos bloqueados após consultas, laudo e transferência.</p>
+    </section>
+
+    <section class="mobile-section">
+      <div class="mobile-kicker">01 | A dor do mercado</div>
+      <h2>O carro pode estar limpo e ainda assim virar prejuízo.</h2>
+      <div class="mobile-grid">
+        <div class="mobile-tile"><strong>Processo comum</strong><p>Consulta, laudo, transferência e pagamento podem parecer corretos.</p></div>
+        <div class="mobile-tile"><strong>Ponto cego</strong><p>Uma decisão judicial posterior pode bloquear o veículo e travar o capital da loja.</p></div>
+      </div>
+    </section>
+
+    <section class="mobile-section">
+      <div class="mobile-kicker">02 | O ponto cego</div>
+      <h2>A consulta comum olha a placa. O risco real mora no CPF.</h2>
+      <p>A JCL IA CARROS cruza sinais públicos de CPF/CNPJ, histórico de proprietários, processos, execuções e alertas para calcular risco antes do dinheiro sair.</p>
+    </section>
+
+    <section class="mobile-section">
+      <div class="mobile-kicker">03 | A solução</div>
+      <h2>Três escudos para reduzir o risco.</h2>
+      <div class="mobile-grid">
+        <div class="mobile-tile"><strong>Antes</strong><p>Detetive particular: análise de risco antes da compra.</p></div>
+        <div class="mobile-tile"><strong>Durante</strong><p>Cofre blindado: dinheiro só libera quando o documento sai limpo.</p></div>
+        <div class="mobile-tile"><strong>Depois</strong><p>Radar 24 horas: estoque monitorado contra novos alertas.</p></div>
+      </div>
+    </section>
+
+    <section class="mobile-section">
+      <div class="mobile-kicker">04 | Demo que vende</div>
+      <h2>Em 60 segundos, a loja recebe uma decisão simples.</h2>
+      <div class="mobile-tile"><strong>Resultado</strong><p>Comprar, segurar no cofre ou recusar. A tela termina em ação, não em relatório.</p></div>
+    </section>
+
+    <section class="mobile-section">
+      <div class="mobile-kicker">05 | Modelo comercial</div>
+      <h2>Assinatura para proteger capital de giro todos os dias.</h2>
+      <div class="mobile-grid">
+        <div class="mobile-tile"><strong>Diagnóstico</strong><p>R$ 497/mês para validar a dor em lojas menores.</p></div>
+        <div class="mobile-tile"><strong>Operação</strong><p>R$ 1.497/mês com score de risco e monitoramento.</p></div>
+        <div class="mobile-tile"><strong>Blindagem</strong><p>R$ 2.997/mês com monitoramento e cofre via parceiro financeiro.</p></div>
+      </div>
+    </section>
+
+    <section class="mobile-section">
+      <div class="mobile-kicker">06 | Fechamento</div>
+      <h2>Mostrar a blindagem, não a tecnologia.</h2>
+      <div class="mobile-quote">"O DETRAN mostra se o carro está limpo. A JCL IA CARROS mostra se o dinheiro da loja está seguro."</div>
+      <p style="margin-top:16px;">Próxima reunião: levar 3 CPFs reais e simular a decisão de compra ao vivo.</p>
+    </section>
+  </main>
   <div class="dots" id="dots" aria-hidden="true"></div>
   <script>
     const slides = Array.from(document.querySelectorAll(".slide"));
@@ -593,11 +826,15 @@
     let index = 0;
 
     function scaleStage() {
-      const maxW = window.innerWidth - 184;
-      const maxH = window.innerHeight - 72;
-      const scale = Math.max(0.22, Math.min(maxW / 1280, maxH / 720));
+      const compact = window.innerWidth <= 860;
+      const maxW = window.innerWidth - (compact ? 20 : 184);
+      const maxH = window.innerHeight - (compact ? 120 : 72);
+      const minScale = compact ? 0.52 : 0.22;
+      const scale = Math.max(minScale, Math.min(maxW / 1280, maxH / 720));
       stage.style.transform = `scale(${scale})`;
-      stage.style.margin = `${(720 * scale - 720) / 2}px ${(1280 * scale - 1280) / 2}px`;
+      stage.style.margin = compact
+        ? "0 0 0 10px"
+        : `${(720 * scale - 720) / 2}px ${(1280 * scale - 1280) / 2}px`;
     }
 
     function show(nextIndex) {
